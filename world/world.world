@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <world name="my_world">
+    <!-- Định nghĩa ánh sáng -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+    <!-- Định nghĩa mặt đất -->
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+    <!-- Tường -->
+    <model name="wall">
+      <static>true</static>
+      <link name="wall_link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>10 0.2 2</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>10 0.2 2</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Wall</name>
+            </script>
+          </material>
+        </visual>
+        <pose>0 5 1 0 0 0</pose>
+      </link>
+    </model>
+    <!-- Thêm các vật thể khác nếu cần -->
+  </world>
+</sdf>
